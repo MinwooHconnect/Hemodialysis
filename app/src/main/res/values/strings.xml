@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Hemodialysis</string>
+    <string name="bluetooth_connection_title">블루투스 연동</string>
+</resources>
