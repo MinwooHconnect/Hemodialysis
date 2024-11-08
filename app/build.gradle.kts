@@ -31,25 +31,17 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     buildFeatures {
-        viewBinding = true
+        dataBinding = true
     }
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
 }
 
-//configurations.all {
-//    resolutionStrategy.eachDependency {
-//        if (requested.name == "appcompat-resources" || requested.group == "androidx.appcompat") {
-//            useVersion("1.3.1") // 원하는 버전으로 변경
-//        }
-//        if (requested.name == "activity") {
-//            useVersion("1.2.2") // 원하는 버전으로 변경
-//        }
-//    }
-//}
-
 dependencies {
+
+    implementation(libs.hconnect.bluetooth.sdk)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

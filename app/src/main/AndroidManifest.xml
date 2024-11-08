@@ -2,7 +2,28 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="s" />
+
+    <!-- 블루투스 장치가 다른 장치에서 검색할 수 있도록 만드는 경우에만 필요합니다.-->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+
+    <!-- 앱이 이미 페어링된 블루투스 장치와 통신하는 경우에만 필요합니다.-->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+    <!--    앱이 서비스를 지원하고 Android 10 (API 수준 29) 또는 Android 11에서 실행할 수 있는 경우,
+    ACCESS_BACKGROUND_LOCATION 권한도 선언하여 블루투스 기기를 검색해야 합니다.-->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -21,6 +42,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".bluetooth.ui.BluetoothConnectionActivity" />
     </application>
 
 </manifest>
